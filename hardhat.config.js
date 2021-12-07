@@ -13,20 +13,26 @@ task("accounts", "Prints the list of accounts", async () => {
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
-module.exports = {
-  solidity: "0.8.4",
-  networks: {
-    rinkeby: {
-      url: process.env.RINKEBY_ALCHEMY_KEY,
-      accounts: { mnemonic: process.env.MY_MNEMONIC },
+if (process.env.MY_MNEMONIC) {
+  module.exports = {
+    solidity: "0.8.2",
+    networks: {
+      rinkeby: {
+        url: process.env.RINKEBY_ALCHEMY_KEY,
+        accounts: { mnemonic: process.env.MY_MNEMONIC },
+      },
+      ropsten: {
+        url: process.env.ROPSTEN_INFURA_KEY,
+        accounts: { mnemonic: process.env.MY_MNEMONIC },
+      },
+      testBSC: {
+        url: "https://data-seed-prebsc-1-s1.binance.org:8545/",
+        accounts: { mnemonic: process.env.MY_MNEMONIC },
+      },
     },
-    ropsten: {
-      url: process.env.ROPSTEN_INFURA_KEY,
-      accounts: { mnemonic: process.env.MY_MNEMONIC },
-    },
-    testBSC: {
-      url: "https://data-seed-prebsc-1-s1.binance.org:8545/",
-      accounts: { mnemonic: process.env.MY_MNEMONIC },
-    },
-  },
+  }
+} else {
+  module.exports = {
+    solidity: "0.8.2"
+  }
 }
