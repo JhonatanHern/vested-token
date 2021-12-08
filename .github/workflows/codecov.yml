@@ -20,4 +20,11 @@ jobs:
        run: npm install
 
      - name: Upload code coverage
-       run: npm run report-coverage
+       uses: codecov/codecov-action@v2
+       with:
+         fetch-depth: 0
+         files: ./coverage.json
+         flags: unittests # optional
+         name: codecov-umbrella # optional
+         fail_ci_if_error: true # optional (default = false)
+         verbose: true # optional (default = false)
