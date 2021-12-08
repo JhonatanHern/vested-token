@@ -2,7 +2,7 @@ name: Upload code coverage
 on: [push, pull_request]
 
 jobs:
- build-test:
+ upload-code:
    runs-on: ubuntu-latest
 
    steps:
@@ -19,5 +19,5 @@ jobs:
      - name: Install dependencies
        run: npm install
 
-     - name: Upload
+     - name: Upload code coverage
        run: npm run report-coverage
