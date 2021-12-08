@@ -19,6 +19,9 @@ jobs:
      - name: Install dependencies
        run: npm install
 
+     - name: Run coverage
+       run: npx hardhat coverage
+
      - name: Upload code coverage
        uses: codecov/codecov-action@v2
        with:
