@@ -1,5 +1,6 @@
 require("@nomiclabs/hardhat-waffle")
 require("@openzeppelin/hardhat-upgrades")
+require("solidity-coverage")
 require("dotenv").config()
 
 task("accounts", "Prints the list of accounts", async () => {
