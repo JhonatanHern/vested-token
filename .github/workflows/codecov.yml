@@ -24,6 +24,7 @@ jobs:
        with:
          fetch-depth: 0
          files: ./coverage.json
+         directory: .
          flags: unittests # optional
          name: codecov-umbrella # optional
          fail_ci_if_error: true # optional (default = false)
